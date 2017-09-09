@@ -49,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
     // COMPLETED (5) Create a class that extends AsyncTask to perform network requests
     // TODO (6) Override the doInBackground method to perform your network requests
     // TODO (7) Override the onPostExecute method to display the results of the network request
-    public class WeatherQueryTask extends AsyncTask<URL, Void, String>{
+    public class FetchWeatherTask extends AsyncTask<String, Void, String[]>{
         @Override
-        protected String doInBackground(URL... urls) {
-            return null;
+        protected String[] doInBackground(String... locations) {
+                return null;
         }
     }
 }
