@@ -23,9 +23,6 @@ import android.widget.TextView;
 import com.example.android.sunshine.utilities.NetworkUtils;
 import com.example.android.sunshine.utilities.OpenWeatherJsonUtils;
 
-import org.json.JSONException;
-
-import java.io.IOException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
@@ -74,10 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 String[] simpleJsonWeatherData =
                         OpenWeatherJsonUtils.getSimpleWeatherStringsFromJson(MainActivity.this, jsonWeatherResponse);
                 return simpleJsonWeatherData;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
