@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
         // COMPLETED (3) Delete the for loop that populates the TextView with dummy data
 
-        // TODO (9) Call loadWeatherData to perform the network request to get the weather
+        // COMPLETED (9) Call loadWeatherData to perform the network request to get the weather
+
+        loadWeatherData();
     }
 
     // COMPLETED (8) Create a method that will get the user's preferred location and execute your new AsyncTask and call it loadWeatherData
