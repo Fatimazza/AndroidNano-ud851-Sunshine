@@ -2,6 +2,7 @@ package com.example.android.sunshine;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
@@ -9,9 +10,9 @@ import android.widget.TextView;
  */
 
 //COMPLETED (15) Add a class file called ForecastAdapter
-public class ForecastAdapter {
+public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder>{
 
-    // TODO (22) Extend RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder>
+    // COMPLETED (22) Extend RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder>
 
     // TODO (23) Create a private string array called mWeatherData
 
@@ -40,11 +41,26 @@ public class ForecastAdapter {
     // TODO (25) Within onCreateViewHolder, inflate the list item xml into a view
     // TODO (26) Within onCreateViewHolder, return a new ForecastAdapterViewHolder with the above view passed in as a parameter
 
+    @Override
+    public ForecastAdapterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return null;
+    }
+
     // TODO (27) Override onBindViewHolder
     // TODO (28) Set the text of the TextView to the weather for this list item's position
 
+    @Override
+    public void onBindViewHolder(ForecastAdapterViewHolder holder, int position) {
+
+    }
+
     // TODO (29) Override getItemCount
     // TODO (30) Return 0 if mWeatherData is null, or the size of mWeatherData if it is not null
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
 
     // TODO (31) Create a setWeatherData method that saves the weatherData to mWeatherData
     // TODO (32) After you save mWeatherData, call notifyDataSetChanged
