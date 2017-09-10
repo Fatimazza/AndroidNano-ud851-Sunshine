@@ -1,6 +1,8 @@
 package com.example.android.sunshine;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -14,7 +16,9 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
 
     // COMPLETED (22) Extend RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder>
 
-    // TODO (23) Create a private string array called mWeatherData
+    // COMPLETED (23) Create a private string array called mWeatherData
+
+    private String[] mWeatherData;
 
     // TODO (47) Create the default constructor (we will pass in parameters in a later lesson)
 
@@ -37,13 +41,20 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         }
     }
 
-    // TODO (24) Override onCreateViewHolder
-    // TODO (25) Within onCreateViewHolder, inflate the list item xml into a view
-    // TODO (26) Within onCreateViewHolder, return a new ForecastAdapterViewHolder with the above view passed in as a parameter
+    // COMPLETED (24) Override onCreateViewHolder
+    // COMPLETED (25) Within onCreateViewHolder, inflate the list item xml into a view
+    // COMPLETED (26) Within onCreateViewHolder, return a new ForecastAdapterViewHolder with the above view passed in as a parameter
 
     @Override
     public ForecastAdapterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        Context context = parent.getContext();
+        int layoutIdForListItem = R.layout.forecast_list_item;
+        boolean shouldAttachToParentImmediately = false;
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(layoutIdForListItem, parent, shouldAttachToParentImmediately);
+        ForecastAdapterViewHolder viewHolder = new ForecastAdapterViewHolder(view);
+        return viewHolder;
     }
 
     // TODO (27) Override onBindViewHolder
