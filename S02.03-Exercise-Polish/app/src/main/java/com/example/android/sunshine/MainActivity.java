@@ -21,6 +21,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.android.sunshine.data.SunshinePreferences;
@@ -33,9 +34,13 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mWeatherTextView;
 
-    // TODO (6) Add a TextView variable for the error message display
+    // COMPLETED (6) Add a TextView variable for the error message display
 
-    // TODO (16) Add a ProgressBar variable to show and hide the progress bar
+    private TextView mErrorMessageDisplay;
+
+    // COMPLETED (16) Add a ProgressBar variable to show and hide the progress bar
+
+    private ProgressBar mLoadingIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +53,13 @@ public class MainActivity extends AppCompatActivity {
          */
         mWeatherTextView = (TextView) findViewById(R.id.tv_weather_data);
 
-        // TODO (7) Find the TextView for the error message using findViewById
+        // COMPLETED (7) Find the TextView for the error message using findViewById
 
-        // TODO (17) Find the ProgressBar using findViewById
+        mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
+
+        // COMPLETED (17) Find the ProgressBar using findViewById
+
+        mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
 
         /* Once all of our views are setup, we can load the weather data. */
         loadWeatherData();
