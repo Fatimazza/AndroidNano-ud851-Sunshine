@@ -43,9 +43,14 @@
         android:padding="16dp"
         android:textSize="20sp" />
 
-    <!--TODO (12) Add a ProgressBar to show the user content is loading-->
-    <!--TODO (13) Make the width and height of the ProgressBar 42dp-->
-    <!--TODO (14) Set the layout_gravity of the ProgressBar to center-->
-    <!--TODO (15) Set the default visibility of the ProgressBar to invisible-->
+    <!--COMPLETED (12) Add a ProgressBar to show the user content is loading-->
+    <!--COMPLETED (13) Make the width and height of the ProgressBar 42dp-->
+    <!--COMPLETED (14) Set the layout_gravity of the ProgressBar to center-->
+    <!--COMPLETED (15) Set the default visibility of the ProgressBar to invisible-->
+    <ProgressBar
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_gravity="center"
+        android:visibility="invisible" />
 
 </FrameLayout>
