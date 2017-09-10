@@ -20,7 +20,10 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
 
     private String[] mWeatherData;
 
-    // TODO (47) Create the default constructor (we will pass in parameters in a later lesson)
+    // COMPLETED (47) Create the default constructor (we will pass in parameters in a later lesson)
+    public ForecastAdapter() {
+
+    }
 
     // COMPLETED (16) Create a class within ForecastAdapter called ForecastAdapterViewHolder
     // COMPLETED (17) Extend RecyclerView.ViewHolder
