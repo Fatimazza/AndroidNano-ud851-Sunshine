@@ -66,12 +66,13 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         holder.mWeatherTextView.setText(weatherForThisDay);
     }
 
-    // TODO (29) Override getItemCount
-    // TODO (30) Return 0 if mWeatherData is null, or the size of mWeatherData if it is not null
+    // COMPLETED (29) Override getItemCount
+    // COMPLETED (30) Return 0 if mWeatherData is null, or the size of mWeatherData if it is not null
 
     @Override
     public int getItemCount() {
-        return 0;
+        if (null == mWeatherData) return 0;
+        return mWeatherData.length;
     }
 
     // TODO (31) Create a setWeatherData method that saves the weatherData to mWeatherData
