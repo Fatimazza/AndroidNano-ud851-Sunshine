@@ -92,7 +92,14 @@ public class MainActivity extends AppCompatActivity {
 
     public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
-        // TODO (18) Within your AsyncTask, override the method onPreExecute and show the loading indicator
+        // COMPLETED (18) Within your AsyncTask, override the method onPreExecute and show the loading indicator
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mLoadingIndicator.setVisibility(View.VISIBLE);
+        }
 
         @Override
         protected String[] doInBackground(String... params) {
@@ -122,7 +129,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String[] weatherData) {
-            // TODO (19) As soon as the data is finished loading, hide the loading indicator
+            // COMPLETED (19) As soon as the data is finished loading, hide the loading indicator
+            mLoadingIndicator.setVisibility(View.INVISIBLE);
 
             if (weatherData != null) {
                 // COMPLETED (11) If the weather data was not null, make sure the data view is visible
