@@ -2,6 +2,7 @@ package com.example.android.sunshine;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * Created by fatimazza on 9/10/17.
@@ -21,14 +22,17 @@ public class ForecastAdapter {
 
     class ForecastAdapterViewHolder extends RecyclerView.ViewHolder {
 
-        // TODO (18) Create a public final TextView variable called mWeatherTextView
+        // COMPLETED (18) Create a public final TextView variable called mWeatherTextView
 
-        // TODO (19) Create a constructor for this class that accepts a View as a parameter
-        // TODO (20) Call super(view) within the constructor for ForecastAdapterViewHolder
-        // TODO (21) Using view.findViewById, get a reference to this layout's TextView and save it to mWeatherTextView
+        public final TextView mWeatherTextView;
+
+        // COMPLETED (19) Create a constructor for this class that accepts a View as a parameter
+        // COMPLETED (20) Call super(view) within the constructor for ForecastAdapterViewHolder
+        // COMPLETED (21) Using view.findViewById, get a reference to this layout's TextView and save it to mWeatherTextView
 
         public ForecastAdapterViewHolder(View itemView) {
             super(itemView);
+            mWeatherTextView = (TextView) itemView.findViewById(R.id.tv_weather_data);
         }
     }
 
