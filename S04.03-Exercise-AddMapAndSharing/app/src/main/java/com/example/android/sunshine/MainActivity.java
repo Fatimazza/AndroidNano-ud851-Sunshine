@@ -230,5 +230,17 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
 
     private void openLocationInMap() {
         
+        String address = "1600 Amphitheatre Parkway, CA";
+
+        //create Uri manually
+        Uri geoLocation = Uri.parse("geo:0,0?q=" + address);
+
+        //create Uri by using builder
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("geo")
+            .path("0,0")
+            .query(address);
+        Uri geoLocation2 = builder.build();
+
     }
 }
