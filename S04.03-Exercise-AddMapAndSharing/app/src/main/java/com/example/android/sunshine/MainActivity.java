@@ -220,9 +220,15 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             loadWeatherData();
             return true;
         }
-
-        // TODO (2) Launch the map when the map menu item is clicked
-
+        // COMPLETED (2) Launch the map when the map menu item is clicked
+        else if (id == R.id.action_map) {
+            openLocationInMap();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openLocationInMap() {
+        
     }
 }
