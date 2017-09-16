@@ -242,5 +242,15 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             .query(address);
         Uri geoLocation2 = builder.build();
 
+        //set Data URI to Intent can use geoLocation or geoLocation2
+
+        Intent showMapIntent = new Intent(Intent.ACTION_VIEW);
+        showMapIntent.setData(geoLocation);
+
+        if (showMapIntent.resolveActivity(getPackageManager()) !=  null) {
+            startActivity(showMapIntent);
+        } else {
+            Log.d(TAG, "Couldn't call " + geoLocation.toString() +", no receiving apps installed!");
+        }
     }
 }
