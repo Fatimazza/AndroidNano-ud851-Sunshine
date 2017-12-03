@@ -269,6 +269,11 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
+    /*
+     * We aren't using this method in our example application, but we are required to Override
+     * it to implement the LoaderCallbacks<String> interface
+     */
+
     @Override
     public void onLoaderReset(Loader<String[]> loader) {
 
