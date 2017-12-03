@@ -121,8 +121,6 @@ public class MainActivity extends AppCompatActivity implements
         new FetchWeatherTask().execute(location);
     }
 
-    // TODO (3) Cache the weather data in a member variable and deliver it in onStartLoading.
-
     // TODO (4) When the load is finished, show either the data or an error message if there is no data
 
     /**
@@ -183,9 +181,25 @@ public class MainActivity extends AppCompatActivity implements
     public Loader<String[]> onCreateLoader(int id, Bundle loaderArgs) {
         return new AsyncTaskLoader<String[]>(this) {
 
+            /* This String array will hold and help cache our weather data */
+
+            String[] mWeatherData = null;
+
+            // COMPLETED (3) Cache the weather data in a member variable and deliver it in onStartLoading.
+
+            /**
+             * Subclasses of AsyncTaskLoader must implement this to take care of loading their data.
+             */
+
             @Override
             protected void onStartLoading() {
-                super.onStartLoading();
+
+                if (null != mWeatherData) {
+                    deliverResult(mWeatherData);
+                } else {
+                    mLoadingIndicator.setVisibility(View.VISIBLE);
+                    forceLoad();
+                }
             }
 
             /**
@@ -219,6 +233,19 @@ public class MainActivity extends AppCompatActivity implements
                     e.printStackTrace();
                     return null;
                 }
+            }
+
+            /**
+             * Sends the result of the load to the registered listener.
+             *
+             * @param data The result of the load
+             */
+
+            @Override
+            public void deliverResult(String[] data) {
+
+                mWeatherData = data;
+                super.deliverResult(data);
             }
         };
     }
