@@ -174,13 +174,13 @@ public class MainActivity extends AppCompatActivity implements
      * * Instantiate and return a new Loader for the given ID.
      *
      * @param id The ID whose loader is to be created.
-     * @param args Any arguments supplied by the caller.
+     * @param loaderArgs Any arguments supplied by the caller.
      *
      * @return Return a new Loader instance that is ready to start loading.
      */
 
     @Override
-    public Loader<String[]> onCreateLoader(int id, Bundle args) {
+    public Loader<String[]> onCreateLoader(int id, Bundle loaderArgs) {
         return new AsyncTaskLoader<String[]>(this) {
 
             @Override
