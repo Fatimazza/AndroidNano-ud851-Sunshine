@@ -189,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements
             }
 
             /**
+             * 
              * This is the method of the AsyncTaskLoader that will load and parse the JSON data
              * from OpenWeatherMap in the background.
              *
@@ -198,7 +199,26 @@ public class MainActivity extends AppCompatActivity implements
 
             @Override
             public String[] loadInBackground() {
-                return new String[0];
+
+                String locationQuery = SunshinePreferences
+                    .getPreferredWeatherLocation(MainActivity.this);
+
+                URL weatherRequestUrl = NetworkUtils.buildUrl(locationQuery);
+
+                try {
+                    String jsonWeatherResponse = NetworkUtils
+                        .getResponseFromHttpUrl(weatherRequestUrl);
+
+                    String[] simpleJsonWeatherData = OpenWeatherJsonUtils
+                        .getSimpleWeatherStringsFromJson(MainActivity.this, jsonWeatherResponse);
+
+                    return simpleJsonWeatherData;
+
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+                    return null;
+                }
             }
         };
     }
