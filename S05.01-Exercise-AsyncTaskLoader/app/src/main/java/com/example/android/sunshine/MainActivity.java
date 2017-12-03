@@ -104,7 +104,41 @@ public class MainActivity extends AppCompatActivity implements
          */
         mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
 
-        // TODO (7) Remove the code for the AsyncTask and initialize the AsyncTaskLoader
+        // COMPLETED (7) Remove the code for the AsyncTask and initialize the AsyncTaskLoader
+
+        /*
+            * This ID will uniquely identify the Loader. We can use it, for example, to get a handle
+            * on our Loader at a later point in time through the support LoaderManager.
+        */
+
+        int loaderId = FORECAST_LOADER_ID;
+
+        /*
+            * From MainActivity, we have implemented the LoaderCallbacks interface with the type of
+            * String array. (implements LoaderCallbacks<String[]>) The variable callback is passed
+            * to the call to initLoader below. This means that whenever the loaderManager has
+            * something to notify us of, it will do so through this callback.
+        */
+
+        LoaderManager.LoaderCallbacks<String[]> callbacks = MainActivity.this;
+
+        /*
+            * The second parameter of the initLoader method below is a Bundle. Optionally, you can
+            * pass a Bundle to initLoader that you can then access from within the onCreateLoader
+            * callback. In our case, we don't actually use the Bundle, but it's here in case we wanted
+            * to.
+        */
+
+        Bundle bundleForLoader = null;
+
+        /*
+            * Ensures a loader is initialized and active. If the loader doesn't already exist, one is
+            * created and (if the activity/fragment is currently started) starts the loader. Otherwise
+            * the last created loader is re-used.
+        */
+
+        getSupportLoaderManager().initLoader(loaderId, bundleForLoader, callbacks);
+
     }
 
     /**
