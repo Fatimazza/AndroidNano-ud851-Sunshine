@@ -279,6 +279,15 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
+    /**
+     * This method is used when we are resetting data, so that at one point in time during a
+     * refresh of our data, you can see that there is no data showing.
+     */
+    
+    private void invalidateData() {
+        mForecastAdapter.setWeatherData(null);
+    }
+
     // TODO (6) Remove any and all code from MainActivity that references FetchWeatherTask
     public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
@@ -365,10 +374,10 @@ public class MainActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        // TODO (5) Refactor the refresh functionality to work with our AsyncTaskLoader
+        // COMPLETED (5) Refactor the refresh functionality to work with our AsyncTaskLoader
         if (id == R.id.action_refresh) {
-            mForecastAdapter.setWeatherData(null);
-            loadWeatherData();
+            invalidateData();
+            getSupportLoaderManager().restartLoader(FORECAST_LOADER_ID, null, this);
             return true;
         }
 
