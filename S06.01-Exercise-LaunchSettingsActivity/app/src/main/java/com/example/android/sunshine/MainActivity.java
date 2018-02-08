@@ -346,7 +346,13 @@ public class MainActivity extends AppCompatActivity implements
             return true;
         }
 
-        // TODO (6) Launch SettingsActivity when the Settings option is clicked
+        // COMPLETED (6) Launch SettingsActivity when the Settings option is clicked
+
+        if (id == R.id.action_settings) {
+            Intent startSettingsActivityIntent = new Intent(this, SettingsActivity.class);
+            startActivity(startSettingsActivityIntent);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
