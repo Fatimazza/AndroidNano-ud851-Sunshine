@@ -89,4 +89,22 @@ public class SettingsFragment extends PreferenceFragmentCompat
             }
         }
     }
+
+    // COMPLETED (12) Register SettingsFragment (this) as a SharedPreferenceChangedListener in onStart
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        getPreferenceScreen().getSharedPreferences()
+            .registerOnSharedPreferenceChangeListener(this);
+    }
+
+    // COMPLETED (13) Unregister SettingsFragment (this) as a SharedPreferenceChangedListener in onStop
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        getPreferenceScreen().getSharedPreferences()
+            .unregisterOnSharedPreferenceChangeListener(this);
+    }
 }
