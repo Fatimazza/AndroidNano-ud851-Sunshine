@@ -1,9 +1,12 @@
 package com.example.android.sunshine;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.preference.CheckBoxPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
+import android.support.v7.preference.PreferenceScreen;
 
 /**
  * Created by fatimazza on 2/9/18.
@@ -20,6 +23,23 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         /* Add 'general' preferences, defined in the XML file */
         addPreferencesFromResource(R.xml.pref_general);
+
+        // Do step 9 within onCreatePreference
+        // COMPLETED (9) Set the preference summary on each preference that isn't a CheckBoxPreference
+
+        SharedPreferences sharedPreferences = getPreferenceScreen().getSharedPreferences();
+
+        PreferenceScreen prefScreen = getPreferenceScreen();
+        int count = prefScreen.getPreferenceCount();
+
+        for (int i = 0; i < count; i++) {
+            Preference p = prefScreen.getPreference(i);
+
+            if (!(p instanceof CheckBoxPreference)) {
+                String value = sharedPreferences.getString(p.getKey(), "");
+                setPreferenceSummary(p, value);
+            }
+        }
 
     }
 
