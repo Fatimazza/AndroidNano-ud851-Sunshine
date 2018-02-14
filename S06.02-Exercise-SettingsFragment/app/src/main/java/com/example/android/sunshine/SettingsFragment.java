@@ -14,7 +14,11 @@ import android.support.v7.preference.PreferenceScreen;
 
 // COMPLETED (4) Create SettingsFragment and extend PreferenceFragmentCompat
 
-public class SettingsFragment extends PreferenceFragmentCompat {
+// Do steps 5 - 11 within SettingsFragment
+// COMPLETED (10) Implement OnSharedPreferenceChangeListener from SettingsFragment
+
+public class SettingsFragment extends PreferenceFragmentCompat
+    implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -68,4 +72,21 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         }
     }
 
+    // COMPLETED (11) Override onSharedPreferenceChanged to update non CheckBoxPreferences when they are changed
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
+        //figure out which preference was changed
+        Preference preference = findPreference(key);
+
+        if (null != preference) {
+            //updates the summary for the preference
+            if (! (preference instanceof CheckBoxPreference)) {
+                //is it same preference.getKey() and key?
+                String value = sharedPreferences.getString(preference.getKey(), "");
+                setPreferenceSummary(preference, value);
+            }
+        }
+    }
 }

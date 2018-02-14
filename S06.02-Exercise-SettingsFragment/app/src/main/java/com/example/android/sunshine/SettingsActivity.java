@@ -30,14 +30,10 @@ public class SettingsActivity extends AppCompatActivity {
         this.setContentView(R.layout.activity_settings);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // Do steps 5 - 11 within SettingsFragment
-        // TODO (10) Implement OnSharedPreferenceChangeListener from SettingsFragment
-
         // TODO (13) Unregister SettingsFragment (this) as a SharedPreferenceChangedListener in onStop
 
         // TODO (12) Register SettingsFragment (this) as a SharedPreferenceChangedListener in onStart
 
-        // TODO (11) Override onSharedPreferenceChanged to update non CheckBoxPreferences when they are changed
     }
 
     @Override
