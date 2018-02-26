@@ -340,7 +340,29 @@ public class MainActivity extends AppCompatActivity implements
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
 
-    // TODO (7) In onStart, if preferences have been changed, refresh the data and set the flag to false
+    // COMPLETED (7) In onStart, if preferences have been changed, refresh the data and set the flag to false
+
+    @Override
+    protected void onStart() {
+
+        /*
+        * If the preferences for location or units have changed since the user was last in
+        * MainActivity, perform another query and set the flag to false.
+        *
+        * This isn't the ideal solution because there really isn't a need to perform another
+        * GET request just to change the units, but this is the simplest solution that gets the
+        * job done for now. Later in this course, we are going to show you more elegant ways to
+        * handle converting the units from celsius to fahrenheit and back without hitting the
+        * network again by keeping a copy of the data in a manageable format.
+        * */
+
+        super.onStart();
+        if (PREFERENCES_HAVE_BEEN_UPDATED) {
+            Log.d(TAG, "onStart: preferences were updated");
+            getSupportLoaderManager().restartLoader(FORECAST_LOADER_ID, null, this);
+            PREFERENCES_HAVE_BEEN_UPDATED = false;
+        }
+    }
 
     // TODO (8) Override onDestroy and unregister MainActivity as a SharedPreferenceChangedListener
 
