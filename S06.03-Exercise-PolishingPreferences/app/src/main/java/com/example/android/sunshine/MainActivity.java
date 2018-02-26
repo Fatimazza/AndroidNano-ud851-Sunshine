@@ -24,6 +24,7 @@ import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -150,7 +151,16 @@ public class MainActivity extends AppCompatActivity implements
 
         Log.d(TAG, "onCreate: registering preference changed listener");
 
-        // TODO (6) Register MainActivity as a OnSharedPreferenceChangedListener in onCreate
+        // COMPLETED (6) Register MainActivity as a OnSharedPreferenceChangedListener in onCreate
+
+        /*
+        * Register MainActivity as an OnPreferenceChangedListener to receive a callback when a
+        * SharedPreference has changed. Please note that we must unregister MainActivity as an
+        * OnSharedPreferenceChanged listener in onDestroy to avoid any memory leaks.
+        * */
+
+        PreferenceManager.getDefaultSharedPreferences(this)
+            .registerOnSharedPreferenceChangeListener(this);
     }
 
     /**
