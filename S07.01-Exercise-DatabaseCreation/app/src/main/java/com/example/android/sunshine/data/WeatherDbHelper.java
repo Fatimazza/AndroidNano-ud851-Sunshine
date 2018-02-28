@@ -15,11 +15,29 @@
  */
 package com.example.android.sunshine.data;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 /**
  * Manages a local database for weather data.
  */
-// TODO (11) Extend SQLiteOpenHelper from WeatherDbHelper
-public class WeatherDbHelper {
+// COMPLETED (11) Extend SQLiteOpenHelper from WeatherDbHelper
+public class WeatherDbHelper extends SQLiteOpenHelper {
+
+    public WeatherDbHelper(Context context) {
+        super(context, "database_name", null, 1);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+
+    }
 
 //  TODO (12) Create a public static final String called DATABASE_NAME with value "weather.db"
 
