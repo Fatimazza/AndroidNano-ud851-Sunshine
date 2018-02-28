@@ -21,7 +21,11 @@ package com.example.android.sunshine.data;
  */
 public class WeatherContract {
 
-//  TODO (1) Within WeatherContract, create a public static final class called WeatherEntry that implements BaseColumns
+    //  COMPLETED (1) Within WeatherContract, create a public static final class called WeatherEntry that implements BaseColumns
+
+    public static final class WeatherEntry{
+
+    }
 
 //      Do steps 2 through 10 within the WeatherEntry class
 
