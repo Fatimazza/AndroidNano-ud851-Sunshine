@@ -33,14 +33,29 @@ public class WeatherContract {
         //      Used internally as the name of our weather table. 
         public static final String TABLE_NAME = "weather";
 
-        //      TODO (3) Create a public static final String call COLUMN_DATE with the value "date"
-        //      TODO (4) Create a public static final String call COLUMN_WEATHER_ID with the value "weather_id"
-        //      TODO (5) Create a public static final String call COLUMN_MIN_TEMP with the value "min"
-        //      TODO (6) Create a public static final String call COLUMN_MAX_TEMP with the value "max"
-        //      TODO (7) Create a public static final String call COLUMN_HUMIDITY with the value "humidity"
-        //      TODO (8) Create a public static final String call COLUMN_PRESSURE with the value "pressure"
-        //      TODO (9) Create a public static final String call COLUMN_WIND_SPEED with the value "wind"
-        //      TODO (10) Create a public static final String call COLUMN_DEGREES with the value "degrees"
+        //      COMPLETED (3) Create a public static final String call COLUMN_DATE with the value "date"
+        public static final String COLUMN_DATE = "date";
+
+        //      COMPLETED (4) Create a public static final String call COLUMN_WEATHER_ID with the value "weather_id"
+        public static final String COLUMN_WEATHER_ID = "weather_id";
+
+        //      COMPLETED (5) Create a public static final String call COLUMN_MIN_TEMP with the value "min"
+        public static final String COLUMN_MIN_TEMP = "min";
+
+        //      COMPLETED (6) Create a public static final String call COLUMN_MAX_TEMP with the value "max"
+        public static final String COLUMN_MAX_TEMP = "max";
+
+        //      COMPLETED (7) Create a public static final String call COLUMN_HUMIDITY with the value "humidity"
+        public static final String COLUMN_HUMIDITY = "humidity";
+
+        //      COMPLETED (8) Create a public static final String call COLUMN_PRESSURE with the value "pressure"
+        public static final String COLUMN_PRESSURE = "pressure";
+
+        //      COMPLETED (9) Create a public static final String call COLUMN_WIND_SPEED with the value "wind"
+        public static final String COLUMN_WIND_SPEED = "wind";
+
+        //      COMPLETED (10) Create a public static final String call COLUMN_DEGREES with the value "degrees"
+        public static final String COLUMN_DEGREES = "degrees";
 
     }
 
